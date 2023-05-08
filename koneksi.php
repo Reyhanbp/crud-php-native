@@ -1,15 +1,15 @@
 <?php
 //Koneksi ke database
-$server   = "localhost";
+$server = "localhost";
 $username = "root";
 $password = "";
-$database = "belajarci";
-  
-$mysqli = new mysqli ($server, $username, $password, $database);
+$database = "php_native";
+
+$mysqli = new mysqli($server, $username, $password, $database);
 if (mysqli_connect_errno()) {
-    echo 'Koneksi gagal dilakukan dengan alasan : '.mysqli_connect_error();
+    echo 'Koneksi gagal dilakukan dengan alasan : ' . mysqli_connect_error();
     exit();
     mysqli_close($mysqli);
-} 
-//Akhir Koneksi---------------------------------------------------------
+}
+
 ?>
