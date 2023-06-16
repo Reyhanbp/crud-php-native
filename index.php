@@ -12,7 +12,7 @@ include "koneksi.php";
   <title>Index</title>
 </head>
 
-<body>
+<body class="body" >
   <div class="container">
     <div class="user">
       <p>DAFTAR USER</p>
@@ -27,9 +27,9 @@ include "koneksi.php";
         <tr>
           <th width="24">No.</th>
           <th width="85">Username</th>
-          <th width="56">Password</th>
           <th width="56">Image</th>
           <th width="38">Edit</th>
+          <th width="45">Detail</th>
           <th width="45">Delete</th>
         </tr>
       </thead>
@@ -41,19 +41,20 @@ include "koneksi.php";
           ?>
           <tr>
             <td>
-              <?php echo $show['id']; ?>
+              <?php echo $nomor++ ?>
             </td>
             <td>
               <?php echo $show['username']; ?>
             </td>
-            <td>
+            <td hidden >
               <?php echo $show['password']; ?>
             </td>
             <td align="center"><img style="width: 150px; " src="img/<?= $show['img']; ?>"
                         alt="<?= $show['img'] ?>">
                 </td>
-            <td><a href="update.php?id=<?php echo $show['id']; ?>">edit</a></td>
-            <td><a href="delete.php?id=<?php echo $show['id']; ?>" onclick="return confirm('Apakah Anda Yakin Mau Menghapus Data Tersebut')" >delete</a></td>
+            <td><a href="update.php?id=<?php echo $show['id']; ?>">Edit</a></td>
+            <td><a href="detail_akun.php?id=<?php echo $show['id']; ?>" >Detail</a></td>
+            <td><a href="delete.php?id=<?php echo $show['id']; ?>" onclick="return confirm('Apakah Anda Yakin Mau Menghapus Data Tersebut')" >Delete</a></td>
           </tr>
         <?php } ?>
       </tbody>
@@ -61,7 +62,7 @@ include "koneksi.php";
   </div>
   <div>
         <button style="position: absolute; bottom: 0; margin-bottom: 20px; width: 100px; margin-left: 15px;">
-            <a href="logout.php" style="color: red; text-decoration: none;">LOG OUT</a>
+            <a href="logout.php" style="color: white; text-decoration: none;">LOG OUT</a>
         </button>
     </div>
 </body>

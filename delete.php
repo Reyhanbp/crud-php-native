@@ -1,27 +1,39 @@
 <?php
-//Koneksi ke database
-$server = "localhost";
-$username = "root";
-$password = "";
-$database = "php_native";
+include('koneksi.php');
 
-$mysqli = new mysqli($server, $username, $password, $database);
-if (mysqli_connect_errno()) {
-    echo 'Koneksi gagal dilakukan dengan alasan : ' . mysqli_connect_error();
-    exit();
-    mysqli_close($mysqli);
-}
+global $mysqli;
+$id = $_GET['id'];
 
+global $id;
 
-if (isset($_GET['id'])) {
-    if (empty($_GET['id'])) {
-        echo "<b>Data yang dihapus tidak ada</b>";
-    } else {
-        $delete = mysqli_query($mysqli, "DELETE FROM user WHERE id='$_GET[id]'") or die("Mysql Error : " . mysqli_error($mysqli));
-        if ($delete) {
+$sql = "DELETE FROM user WHERE id = ?";
+if ($stmt = mysqli_prepare($mysqli, $sql)) {
+    mysqli_stmt_bind_param($stmt, "i", $param_id);
+    $param_id = $id;
+
+    $sql = "SELECT * FROM user WHERE id = ?";
+    if ($prepare = mysqli_prepare($mysqli, $sql)) {
+        mysqli_stmt_bind_param($prepare, "i", $param_id);
+        mysqli_stmt_execute($prepare);
+        $result = mysqli_stmt_get_result($prepare);
+        if (mysqli_num_rows($result) == 1) {
+            $delete = mysqli_fetch_array($result);
+            $del_img = unlink("img/$delete[img]");
             echo "Berhasil Hapus Data <br>";
             echo "<a href='index.php'>Kembali</a>";
+        } else {
+            header("location: error");
+            exit();
+        }
+        if (mysqli_stmt_execute($stmt) && ($del_img)) {
+            return true;
+        } else {
+            return false;
         }
     }
+
+    mysqli_stmt_close($stmt);
+    mysqli_stmt_close($prepare);
 }
+
 ?>

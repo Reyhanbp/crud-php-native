@@ -39,6 +39,10 @@
            
         </div>
     </form>
- 
+    <div>
+        <button style="position: absolute; bottom: 0; margin-bottom: 20px; width: 100px; margin-left: 15px;">
+            <a href="index.php" style="color: white; text-decoration: none;">Kembali</a>
+        </button>
+    </div>
 </body>
 </html>

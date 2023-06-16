@@ -11,9 +11,6 @@ if (isset($_POST['simpan'])) {
     $user_name = $_POST['username'];
     $password = $_POST['password'];
 
-   
-
-
     $data = mysqli_query($mysqli, "INSERT INTO user SET username='$user_name', password='$password' , img='$img' ") or die("data salah : " . mysqli_error($mysqli));
 
     if ($data) {

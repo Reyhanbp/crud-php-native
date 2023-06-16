@@ -1,42 +1,85 @@
 body {
-	background-color: #f1f1f1;
-	font-family: Arial, sans-serif;
-}
-
+	background-color: #f7f7f7;
+	font-family: 'Roboto', sans-serif;
+  }
+/* Style untuk container utama */
 .container {
-	background-color: #ffffff;
-	border: 1px solid #e6e6e6;
-	border-radius: 3px;
-	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 	margin: 20px auto;
+	width: 90%;
 	max-width: 800px;
+	background-color: #fff;
 	padding: 20px;
-	text-align: center;
-}
-
-.user {
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style untuk judul "DAFTAR USER" */
+  .user p {
 	font-size: 24px;
-	font-weight: 700;
-	margin-bottom: 30px;
-}
-
-table {
-	border-collapse: collapse;
-	margin: 0 auto;
-	width: 100%;
-}
-
-th, td {
-	border: 1px solid #e6e6e6;
+	font-weight: bold;
+	margin-bottom: 20px;
+  }
+  
+  /* Style untuk tombol "Tambah User" */
+  .user button {
+	background-color: #4CAF50;
+	color: #2c3e50;
+	border: none;
+	border-radius: 5px;
 	padding: 10px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	font-weight: bold;
+  }
+  
+  /* Style untuk link pada tombol "Tambah User" */
+  .user a {
+	color: white;
+	text-decoration: none;
+  }
+  
+  /* Style untuk tabel */
+  table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+  
+  /* Style untuk header tabel */
+  thead {
+	background-color: #2c3e50;
+	color: white;
+  }
+  
+  /* Style untuk sel pada tabel */
+  td, th {
+	padding: 8px;
 	text-align: left;
-}
-
-th {
-	background-color: #333333;
-	color: #ffffff;
-}
-
-tbody tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
+  }
+  
+  /* Style untuk sel pada kolom "Image" */
+  td:nth-child(4) {
+	text-align: center;
+  }
+  
+  /* Style untuk gambar pada kolom "Image" */
+  td:nth-child(4) img {
+	width: 150px;
+  }
+  
+  /* Style untuk link pada kolom "Edit" dan "Delete" */
+  td:nth-child(5) a, td:nth-child(6) a, td:nth-child(7) a {
+	color: #2c3e50;
+	text-decoration: none;
+	font-weight: bold;
+  }
+  
+  /* Style untuk tombol "Log Out" */
+  button {
+	background-color: #ff3333;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	cursor: pointer;
+	font-weight: bold;
+  }
